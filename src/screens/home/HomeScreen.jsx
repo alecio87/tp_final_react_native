@@ -5,9 +5,9 @@ import { styles } from './HomeScreen.styles'
 export const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <ImageBackground style={styles.bgImage} source={{ uri: https://drive.google.com/file/d/18Np38YPjMAwEfUJiz7UrBZ8AoafigTIP/view?usp=sharing }}>
+      <ImageBackground style={styles.bgImage} source={require('../../../assets/images/main.png')}>
         <Text style={styles.title}>
-          dale la vuelta a Jujuy 
+          dale la vuelta a Jujuy
         </Text>
       </ImageBackground>
     </SafeAreaView>
