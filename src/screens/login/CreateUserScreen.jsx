@@ -1,14 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
-import { styles } from './LoginScreen.styles'
 import { useForm, Controller } from 'react-hook-form'
-import { getUsers } from '../../api/user.service'
-import { UserContext } from '../../contexts/UserContext'
-import { useNavigation } from '@react-navigation/native'
+import { styles } from './CreateUserScreen.styles'
+import { createUser } from '../../api/user.service'
 
-export const LoginScreen = () => {
-  const navigation = useNavigation()
-  const { setCurrentUser } = useContext(UserContext)
+export const CreateUserScreen = () => {
   const { control, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       username: '',
@@ -16,22 +12,17 @@ export const LoginScreen = () => {
     }
   })
 
-  const handleLogin = ({ username, password }) => {
-    getUsers()
-      .then(users => {
-        const user = users.find(user => user.username === username && user.password === password)
-        if (user) {
-          setCurrentUser(user)
-          navigation.navigate('Home')
-        } else {
-          console.log('Usuario no encontrado')
-        }
+  const handleCreateUser = ({ username, password }) => {
+    createUser({ username, password })
+      .then(response => {
+        console.log('User created:', response)
       })
       .catch(err => console.warn(err))
   }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Inicio de Sesión</Text>
+      <Text style={styles.title}>Crear Usuario</Text>
       <Controller
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
@@ -64,12 +55,9 @@ export const LoginScreen = () => {
         rules={{ required: 'La constraseña es requerida' }}
       />
       {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
-      <TouchableOpacity style={styles.button} onPress={handleSubmit(handleLogin)}>
-        <Text style={styles.buttonText}>Entrar</Text>
+      <TouchableOpacity style={styles.button} onPress={handleSubmit(handleCreateUser)}>
+        <Text style={styles.buttonText}>Crear Usuario</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.link} onPress={() => navigation.navigate('SignUp')}>
-    <Text style={styles.linkText}>¿No tienes una cuenta? Regístrate aquí</Text>
-  </TouchableOpacity>
     </View>
   )
 }
