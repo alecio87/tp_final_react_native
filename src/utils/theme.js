@@ -5,7 +5,8 @@ export const COLORS = {
   inactive: '#A0A0A0',
   white: '#FFFFFF',
   yellow: '#FFE200',
-  grey: '#F1F1F1'
+  grey: '#F1F1F1',
+  black: '#17191E'
 }
 
 export const SPACING = {

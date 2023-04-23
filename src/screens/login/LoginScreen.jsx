@@ -5,6 +5,9 @@ import { useForm, Controller } from 'react-hook-form'
 import { getUsers } from '../../api/user.service'
 import { UserContext } from '../../contexts/UserContext'
 import { useNavigation } from '@react-navigation/native'
+import { Entypo } from '@expo/vector-icons'
+import { LinearGradient } from 'expo-linear-gradient'
+
 
 export const LoginScreen = () => {
   const navigation = useNavigation()
@@ -65,7 +68,13 @@ export const LoginScreen = () => {
       />
       {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
       <TouchableOpacity style={styles.button} onPress={handleSubmit(handleLogin)}>
-        <Text style={styles.buttonText}>Entrar</Text>
+          <LinearGradient
+            colors={['#CE3197','#0951B6','#0983B6','#13BDC3']}
+            start={[0, 0]}
+            end={[1, 0]}
+            style={styles.gradient}>
+            <Text style={styles.buttonText}>INGRESAR</Text>
+          </LinearGradient>
       </TouchableOpacity>
       <TouchableOpacity style={styles.link} onPress={() => navigation.navigate('SignUp')}>
     <Text style={styles.linkText}>¿No tienes una cuenta? Regístrate aquí</Text>

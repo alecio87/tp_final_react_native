@@ -7,6 +7,8 @@ import { COLORS } from '../../utils/theme'
 import { Link } from '@react-navigation/native'
 import { UserContext } from '../../contexts/UserContext'
 
+
+
 export const LocationDetailScreen = ({ route }) => {
   const { item } = route.params
   const { currentUser } = useContext(UserContext)
@@ -28,10 +30,16 @@ export const LocationDetailScreen = ({ route }) => {
 
       <View style={styles.textContainer}>
         <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.location}>{item.location}</Text>
-        <Text style={styles.price}>{item.price}</Text>
         <View style={styles.ratingContainer}>
-          <Ionicons name='star' size={20} color={COLORS.primary} />
+          <Ionicons name='md-map' size={30} color={COLORS.primary} />
+          <Text style={styles.rating}>{item.location}</Text>
+        </View>
+        <View style={styles.ratingContainer}>
+          <Ionicons name='md-card-outline' size={20} color={COLORS.primary} />
+          <Text style={styles.rating}>{item.price}</Text>
+        </View>
+        <View style={styles.ratingContainer}>
+          <Ionicons name='md-star' size={20} color={COLORS.primary} />
           <Text style={styles.rating}>{item.rating}</Text>
         </View>
         {currentUser && (

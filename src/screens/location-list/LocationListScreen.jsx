@@ -4,6 +4,8 @@ import { styles } from './LocationListScreen.styles'
 // import { data } from '../../api/data'
 import { SearchBar } from '../../components/search-bar/SearchBar'
 import { getLocationList } from '../../api/location.service'
+import { Ionicons } from '@expo/vector-icons'
+import { COLORS } from '../../utils/theme'
 
 export const LocationListScreen = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = useState('')
@@ -29,7 +31,10 @@ export const LocationListScreen = ({ navigation }) => {
       <View style={styles.itemContainer}>
         <Image source={{ uri: `https://drive.google.com/uc?id=${item.images[0]}` }} style={styles.itemImage} />
         <Text style={styles.itemTitle}>{item.title}</Text>
-        <Text style={styles.itemPrice}>{item.price}</Text>
+        <View style={styles.ratingContainer}>
+          <Ionicons name='md-card-outline' size={18} color={COLORS.primary} />
+          <Text style={styles.rating}>{item.price}</Text>
+        </View>
       </View>
     </Pressable>
   )

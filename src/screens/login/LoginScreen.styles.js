@@ -12,7 +12,8 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#CE3197'
   },
   input: {
     height: 40,
@@ -26,8 +27,8 @@ export const styles = StyleSheet.create({
     color: 'red',
     marginBottom: 8
   },
-  button: {
-    backgroundColor: COLORS.primary,
+  gradient: {
+    flex: 1,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 20,
