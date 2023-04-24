@@ -27,8 +27,8 @@ export const styles = StyleSheet.create({
     color: 'red',
     marginBottom: 8
   },
-  gradient: {
-    flex: 1,
+  button: {
+    backgroundColor: COLORS.primary,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 20,

@@ -2,12 +2,10 @@ import React, { useContext } from 'react'
 import { View, ScrollView, Image, Text } from 'react-native'
 import MapView, { Marker } from 'react-native-maps'
 import { styles } from './LocationDetailScreen.styles'
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons, FontAwesome } from '@expo/vector-icons'
 import { COLORS } from '../../utils/theme'
 import { Link } from '@react-navigation/native'
 import { UserContext } from '../../contexts/UserContext'
-
-
 
 export const LocationDetailScreen = ({ route }) => {
   const { item } = route.params
@@ -42,12 +40,7 @@ export const LocationDetailScreen = ({ route }) => {
           <Ionicons name='md-star' size={20} color={COLORS.primary} />
           <Text style={styles.rating}>{item.rating}</Text>
         </View>
-        {currentUser && (
-          <Link style={styles.webButton} to={{ screen: 'LocationDetailWeb', params: { url: item.url } }}>
-            Ir a la web
-          </Link>
-        )}
-        <Text style={styles.description}>{item.description}</Text>
+        {currentUser && (<Link style={styles.webButton} to={{ screen: 'LocationDetailWeb', params: { url: item.url } }}><FontAwesome name="globe" size={18} color={COLORS.white} /><Text style={styles.webButtonText}>Ir a la web</Text></Link>)}<Text style={styles.description}>{item.description}</Text>
       </View>
       <MapView
         style={styles.map}
