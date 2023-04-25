@@ -3,10 +3,13 @@ export const COLORS = {
   secondary: '#F9777B',
   text: '#263238',
   inactive: '#A0A0A0',
-  white: '#FFFFFF',
+  white: '#FAFAFA',
   yellow: '#FFE200',
-  grey: '#F1F1F1',
-  black: '#17191E'
+  grey: '#CEECF5',
+  black: '#17191E',
+  blue: '#2E9AFE',
+  blue2: '#2E2EFE',
+  red: '#FF0000'
 }
 
 export const SPACING = {

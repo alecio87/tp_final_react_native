@@ -21,8 +21,8 @@ const screenOptions = ({ route }) => {
     tabBarIcon: ({ size, color }) => (
       <Ionicons name={iconName} size={size} color={color} />
     ),
-    tabBarActiveTintColor: COLORS.primary,
-    tabBarInactiveTintColor: COLORS.inactive,
+    tabBarActiveTintColor: COLORS.red,
+    tabBarInactiveTintColor: COLORS.blue,
     headerShown: false,
     tabBarStyle: styles.tabBar
 

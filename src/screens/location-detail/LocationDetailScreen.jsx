@@ -29,15 +29,15 @@ export const LocationDetailScreen = ({ route }) => {
       <View style={styles.textContainer}>
         <Text style={styles.title}>{item.title}</Text>
         <View style={styles.ratingContainer}>
-          <Ionicons name='md-map' size={30} color={COLORS.primary} />
+          <Ionicons name='md-map' size={30} color={COLORS.blue} />
           <Text style={styles.rating}>{item.location}</Text>
         </View>
         <View style={styles.ratingContainer}>
-          <Ionicons name='md-card-outline' size={20} color={COLORS.primary} />
+          <Ionicons name='md-card-outline' size={20} color={COLORS.blue} />
           <Text style={styles.rating}>{item.price}</Text>
         </View>
         <View style={styles.ratingContainer}>
-          <Ionicons name='md-star' size={20} color={COLORS.primary} />
+          <Ionicons name='md-star' size={20} color={COLORS.blue} />
           <Text style={styles.rating}>{item.rating}</Text>
         </View>
         {currentUser && (<Link style={styles.webButton} to={{ screen: 'LocationDetailWeb', params: { url: item.url } }}><FontAwesome name="globe" size={18} color={COLORS.white} /><Text style={styles.webButtonText}>Ir a la web</Text></Link>)}<Text style={styles.description}>{item.description}</Text>

@@ -32,7 +32,7 @@ export const LocationListScreen = ({ navigation }) => {
         <Image source={{ uri: `https://drive.google.com/uc?id=${item.images[0]}` }} style={styles.itemImage} />
         <Text style={styles.itemTitle}>{item.title}</Text>
         <View style={styles.ratingContainer}>
-          <Ionicons name='md-card-outline' size={18} color={COLORS.primary} />
+          <Ionicons name='md-card-outline' size={18} color={COLORS.blue} />
           <Text style={styles.rating}>{item.price}</Text>
         </View>
       </View>

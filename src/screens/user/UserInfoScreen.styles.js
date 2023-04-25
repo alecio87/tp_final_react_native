@@ -4,7 +4,7 @@ import { COLORS } from '../../utils/theme'
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.grey,
     marginTop: StatusBar.currentHeight
   },
   header: {
@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
   },
   button: {
     justifyContent: 'center',
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.blue,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 20,

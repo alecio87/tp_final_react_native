@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#CEECF5',
+    backgroundColor: '#fff',
     marginTop: StatusBar.currentHeight
   },
   title: {
@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 16,
     textAlign: 'center',
-    color: '#2E9AFE'
+    color: '#CE3197'
   },
   input: {
     height: 40,
@@ -28,16 +28,11 @@ export const styles = StyleSheet.create({
     marginBottom: 8
   },
   button: {
-    backgroundColor: COLORS.blue,
+    backgroundColor: COLORS.primary,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 20,
     marginTop: 8,
     alignItems: 'center'
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold'
   }
 })

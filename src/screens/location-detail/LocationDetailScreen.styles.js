@@ -4,7 +4,7 @@ import { COLORS, FONT_SIZE } from '../../utils/theme'
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.grey,
     marginTop: StatusBar.currentHeight
   },
   imageContainer: {
@@ -53,7 +53,7 @@ export const styles = StyleSheet.create({
   },
   webButton: {
     textAlign: 'center',
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.blue,
     color: COLORS.white,
     borderRadius: 20,
     paddingHorizontal: 10,
