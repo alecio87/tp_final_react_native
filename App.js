@@ -23,7 +23,7 @@ export default function App () {
         </NavigationContainer>
       </UserProvider>
 
-      <StatusBar style='auto'/>
+      <StatusBar style='auto' />
     </>
   )
 }

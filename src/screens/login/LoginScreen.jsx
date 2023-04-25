@@ -65,7 +65,6 @@ export const LoginScreen = () => {
       />
       {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
       <TouchableOpacity style={styles.button} onPress={handleSubmit(handleLogin)}><Text style={styles.buttonText}><Entypo name="login" size={24} color="white"/>Entrar</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Register')}><Text style={styles.buttonText}><Entypo name="add-user" size={24} color="white"/>Registrarse</Text></TouchableOpacity>
     </View>
   )
 }
