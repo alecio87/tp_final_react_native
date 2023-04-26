@@ -6,13 +6,15 @@ import { COLORS, SPACING } from '../../utils/theme'
 import { Ionicons } from '@expo/vector-icons'
 import { HomeScreen } from '../home/HomeScreen'
 import { ProfileScreen } from '../profile/ProfileScreen'
+import { RegisterForm } from '../register/RegisterForm'
 
 const Tab = createBottomTabNavigator()
 
 const TAB_ICON = {
   Home: 'home',
   Profile: 'person',
-  Search: 'search'
+  Search: 'search',
+  RegisterForm: 'people'
 }
 
 const screenOptions = ({ route }) => {
@@ -34,6 +36,7 @@ export const MainStackScreen = () => {
       <Tab.Screen name='Home' options={{ title: 'Inicio' }} component={HomeScreen} />
       <Tab.Screen name='Search' options={{ title: 'Explorar' }} component={LocationListScreen} />
       <Tab.Screen name='Profile' options={{ title: 'Perfil' }} component={ProfileScreen} />
+      <Tab.Screen name='RegisterForm' options={{ title: 'Registrar' }} component={RegisterForm} />
     </Tab.Navigator>
   )
 }

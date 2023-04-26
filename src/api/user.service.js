@@ -9,3 +9,17 @@ export const getUsers = async () => {
     throw new Error('could not fetch users')
   }
 }
+
+export const addUser = async (data) => {
+  try {
+    const response = await fetch(SERVICE_ENDPOINT, {
+      method: 'POST',
+      headers: {'content-type':'application/json'},
+      body: JSON.stringify(data)
+    });
+   
+    return response.json()
+  } catch {
+    throw new Error('could not create user')
+  }
+}

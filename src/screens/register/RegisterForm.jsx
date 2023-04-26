@@ -1,40 +1,36 @@
 import React, { useContext } from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
-import { styles } from './LoginScreen.styles'
+import { styles } from './RegisterForm.styles'
 import { useForm, Controller } from 'react-hook-form'
-import { getUsers } from '../../api/user.service'
 import { UserContext } from '../../contexts/UserContext'
 import { useNavigation } from '@react-navigation/native'
 import Entypo from 'react-native-vector-icons/Entypo'
+import { addUser } from '../../api/user.service'
 
-export const LoginScreen = () => {
+export const RegisterForm = () => {
   const navigation = useNavigation()
   const { setCurrentUser } = useContext(UserContext)
-  const { control, handleSubmit, formState: { errors } } = useForm({
+  const { control, handleSubmit, reset, formState: { errors } } = useForm({
     defaultValues: {
       username: '',
       password: ''
     }
   })
 
-  const handleRegistration = ({}) => {
-    navigation.navigate("RegisterForm")
-  }
-  const handleLogin = ({ username, password }) => {
-    getUsers()
-      .then(users => {
-        const user = users[0]
-        if (username === user.username && password === user.password) {
-          setCurrentUser({ username, password })
-          navigation.navigate('Home')
-        }
-      })
-      .catch(err => console.warn(err))
+  const handleRegistration = async ({ username, password }) => {
+    try {
+      const newUser = await addUser({ username, password })
+      setCurrentUser(newUser)
+      navigation.navigate('Home')
+      reset() // Limpiar los campos después de registrarse
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Inicio de Sesión</Text>
+      <Text style={styles.title}>Registro de Usuario</Text>
       <Controller
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
@@ -66,9 +62,8 @@ export const LoginScreen = () => {
         name='password'
         rules={{ required: 'La constraseña es requerida' }}
       />
-      {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
-      <TouchableOpacity style={styles.button} onPress={handleSubmit(handleLogin)}><Text style={styles.buttonText}><Entypo name="login" size={24} color="white"/>Entrar</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={handleRegistration}><Text style={styles.buttonText}><Entypo name="user" size={24} color="white"/>Registrar</Text></TouchableOpacity>
+      {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}      
+      <TouchableOpacity style={styles.button} onPress={handleSubmit(handleRegistration)}><Text style={styles.buttonText}><Entypo name="user" size={24} color="white"/>Registrarse</Text></TouchableOpacity>
     </View>
   )
 }
