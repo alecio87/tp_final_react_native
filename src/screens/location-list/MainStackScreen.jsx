@@ -8,6 +8,7 @@ import { HomeScreen } from '../home/HomeScreen'
 import { ProfileScreen } from '../profile/ProfileScreen'
 import { RegisterForm } from '../register/RegisterForm'
 
+
 const Tab = createBottomTabNavigator()
 
 const TAB_ICON = {

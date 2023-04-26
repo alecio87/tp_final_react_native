@@ -20,18 +20,21 @@ export const LoginScreen = () => {
   const handleRegistration = ({}) => {
     navigation.navigate("RegisterForm")
   }
+
   const handleLogin = ({ username, password }) => {
     getUsers()
       .then(users => {
-        const user = users[0]
-        if (username === user.username && password === user.password) {
-          setCurrentUser({ username, password })
+        const user = users.find(user => user.username === username && user.password === password)
+        if (user) {
+          setCurrentUser(user)
           navigation.navigate('Home')
+        } else {
+          console.log('Usuario no encontrado')
         }
       })
       .catch(err => console.warn(err))
   }
-
+  
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Inicio de Sesión</Text>
